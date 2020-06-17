@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cirdan.Services", "src\Cirdan.Services\Cirdan.Services.csproj", "{DC086BB1-DB84-42FC-B7BF-361E06E81EE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cirdan.Repositories", "src\Cirdan.Repositories\Cirdan.Repositories.csproj", "{F01C73E8-11FF-4B08-BA8E-14733D3CFB6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cirdan.Config", "src\Cirdan.Config\Cirdan.Config.csproj", "{C3AD1DBB-2875-4002-A3BA-2751D89A8C51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cirdan.Models", "src\Cirdan.Models\Cirdan.Models.csproj", "{D0F6B32E-709A-4D25-8363-10614F052672}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{02FBEBF3-46BD-4A94-B3E1-273B2E92BF67}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cirdan.Models.Tests", "src\Cirdan.Models.Tests\Cirdan.Models.Tests.csproj", "{45E640DF-6CEF-42B9-A279-3B528D801812}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cirdan.Services.Tests", "src\Cirdan.Services.Tests\Cirdan.Services.Tests.csproj", "{3FD4904F-F33B-4809-B4D2-1D8EF0CED6D4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC086BB1-DB84-42FC-B7BF-361E06E81EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC086BB1-DB84-42FC-B7BF-361E06E81EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC086BB1-DB84-42FC-B7BF-361E06E81EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC086BB1-DB84-42FC-B7BF-361E06E81EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F01C73E8-11FF-4B08-BA8E-14733D3CFB6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F01C73E8-11FF-4B08-BA8E-14733D3CFB6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F01C73E8-11FF-4B08-BA8E-14733D3CFB6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F01C73E8-11FF-4B08-BA8E-14733D3CFB6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3AD1DBB-2875-4002-A3BA-2751D89A8C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3AD1DBB-2875-4002-A3BA-2751D89A8C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3AD1DBB-2875-4002-A3BA-2751D89A8C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3AD1DBB-2875-4002-A3BA-2751D89A8C51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0F6B32E-709A-4D25-8363-10614F052672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0F6B32E-709A-4D25-8363-10614F052672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0F6B32E-709A-4D25-8363-10614F052672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0F6B32E-709A-4D25-8363-10614F052672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E640DF-6CEF-42B9-A279-3B528D801812}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E640DF-6CEF-42B9-A279-3B528D801812}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E640DF-6CEF-42B9-A279-3B528D801812}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E640DF-6CEF-42B9-A279-3B528D801812}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FD4904F-F33B-4809-B4D2-1D8EF0CED6D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FD4904F-F33B-4809-B4D2-1D8EF0CED6D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FD4904F-F33B-4809-B4D2-1D8EF0CED6D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FD4904F-F33B-4809-B4D2-1D8EF0CED6D4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{45E640DF-6CEF-42B9-A279-3B528D801812} = {02FBEBF3-46BD-4A94-B3E1-273B2E92BF67}
+		{3FD4904F-F33B-4809-B4D2-1D8EF0CED6D4} = {02FBEBF3-46BD-4A94-B3E1-273B2E92BF67}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3170B16F-F84C-4A46-A33D-DB3A1FEC0474}
+	EndGlobalSection
+EndGlobal

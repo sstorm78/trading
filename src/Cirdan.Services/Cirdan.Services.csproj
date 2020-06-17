@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Cirdan.Config\Cirdan.Config.csproj" />
+    <ProjectReference Include="..\Cirdan.Models\Cirdan.Models.csproj" />
+    <ProjectReference Include="..\Cirdan.Repositories\Cirdan.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
