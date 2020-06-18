@@ -48,8 +48,8 @@ namespace Cirdan.Services
                 return new BestBidAndAskResult(null,null);
             }
 
-            var bestAsk = orderBook.Where(o => o.Side == Side.Ask.ToString()).OrderBy(o => o.Price).FirstOrDefault();
-            var bestBid = orderBook.Where(o => o.Side == Side.Bid.ToString()).OrderByDescending(o => o.Price).FirstOrDefault();
+            var bestAsk = orderBook.Where(o => o.Side == SideExtensions.ToString(Side.Ask)).OrderBy(o => o.Price).FirstOrDefault();
+            var bestBid = orderBook.Where(o => o.Side == SideExtensions.ToString(Side.Bid)).OrderByDescending(o => o.Price).FirstOrDefault();
             
             return new BestBidAndAskResult(bestBid?.ToModel(), bestAsk?.ToModel());
         }

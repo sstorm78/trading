@@ -2,10 +2,10 @@ using System;
 using System.Threading.Tasks;
 using Cirdan.Config;
 using Cirdan.Repositories;
+using Cirdan.Repositories.Entities;
 using FluentAssertions;
 using Moq;
 using NUnit.Framework;
-using Order = Cirdan.Repositories.Entities.Order;
 
 namespace Cirdan.Services.Tests
 {
@@ -85,6 +85,63 @@ namespace Cirdan.Services.Tests
             await sut.ProcessOrder("test", "1568390243|abbb11|c");
 
             repoMock.Verify(a => a.Cancel(It.IsAny<string>(), "abbb11"), Times.Once);
+        }
+
+        [TestCase("c")]
+        public void ProcessOrder_ShouldNotThrowExceptionIfCancellingAnOrderThanDoesNotExist(string action)
+        {
+            var repoMock = new Mock<IOrderBookRepository>();
+            var validator = new OrderValidationService();
+            var sut = new MarketService(repoMock.Object, validator);
+
+            var payload = "1|v|c|4";
+
+            Func<Task> test = async () => { await sut.ProcessOrder("test", "1568390243|abbb11|c"); };
+            
+            test.Should().NotThrow();
+        }
+
+        [Test]
+        public async Task GetBestBidAndAsk_ShouldReturnNullsWhenNoOrderBookWasFound()
+        {
+            var repo = new OrderBookRepository();
+            var validator = new OrderValidationService();
+            
+            var sut = new MarketService(repo, validator);
+
+            var result = await sut.GetBestBidAndAsk("test", "aaa");
+
+            result.Should().NotBeNull();
+            result.BestAsk.Should().BeNull();
+            result.BestBid.Should().BeNull();
+        }
+
+        [Test]
+        public async Task GetBestBidAndAsk_ShouldReturnBestBidAndAskOrders()
+        {
+            var repo = new OrderBookRepository();
+            var validator = new OrderValidationService();
+
+            var sut = new MarketService(repo, validator);
+
+            //add data
+            await sut.ProcessOrder("test", "1568390242|abbb12|a|AAPL|B|100.00000|100");
+            await sut.ProcessOrder("test", "1568390241|abbb11|a|AAPL|B|300.00000|100");
+            await sut.ProcessOrder("test", "1568390243|abbb13|a|AAPL|B|200.00000|100");
+
+            await sut.ProcessOrder("test", "1568390245|abbb15|a|AAPL|S|800.00000|100");
+            await sut.ProcessOrder("test", "1568390246|abbb16|a|AAPL|S|700.00000|100");
+            await sut.ProcessOrder("test", "1568390247|abbb17|a|AAPL|S|600.00000|100");
+
+            var result = await sut.GetBestBidAndAsk("test", "AAPL");
+
+            result.Should().NotBeNull();
+
+            result.BestAsk.Should().NotBeNull();
+            result.BestAsk.Price.Should().Be(600.00000m);
+
+            result.BestBid.Should().NotBeNull();
+            result.BestBid.Price.Should().Be(300.00000m);
         }
     }
 }
